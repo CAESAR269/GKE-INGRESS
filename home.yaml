@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: green-dep
+  name: home-dep
 spec:
   replicas: 3
   selector:
@@ -12,24 +12,24 @@ spec:
     type: Recreate
   template:
     metadata:
-      name: green-dep
+      name: home-dep
       labels:
         app: dev
     spec:
       containers:
-        - name: green
-          image: caesar269/nginx:green
+        - name: home
+          image: caesar269/nginx:home
           ports:
             - containerPort: 80
-              name: green-port
+              name: home-port
 ---
 apiVersion: v1
 kind: Service
 metadata: 
-  name: green-svc
+  name: home-svc
 spec:
   selector:
      app: dev
   ports:
-    - name: green-port
+    - name: home-port
       targetPort: 80

@@ -32,5 +32,4 @@ spec:
      app: dev
   ports:
     - name: red-port
-      port: 35002
       targetPort: 80

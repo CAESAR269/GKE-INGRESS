@@ -32,5 +32,4 @@ spec:
      app: dev
   ports:
     - name: orange-port
-      port: 35000
       targetPort: 80
