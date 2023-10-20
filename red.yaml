@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dev
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: red-dep
+      labels:
+        app: dev
+    spec:
+      containers:
+        - name: red
+          image: caesar269/nginx:red
+          ports:
+            - containerPort: 80
+              name: red-port
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: red-svc
+spec:
+  selector:
+     app: dev
+  ports:
+    - name: red-port
+      port: 35002
+      targetPort: 80

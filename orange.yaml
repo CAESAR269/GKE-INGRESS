@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dev
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: orange-dep
+      labels:
+        app: dev
+    spec:
+      containers:
+        - name: orange
+          image: caesar269/nginx:orange
+          ports:
+            - containerPort: 80
+              name: orange-port
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: orange-svc
+spec:
+  selector:
+     app: dev
+  ports:
+    - name: orange-port
+      port: 35000
+      targetPort: 80

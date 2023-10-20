@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dev
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: green-dep
+      labels:
+        app: dev
+    spec:
+      containers:
+        - name: green
+          image: caesar269/nginx:green
+          ports:
+            - containerPort: 80
+              name: green-port
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: green-svc
+spec:
+  selector:
+     app: dev
+  ports:
+    - name: green-port
+      port: 35001
+      targetPort: 80
