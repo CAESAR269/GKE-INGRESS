@@ -34,3 +34,4 @@ spec:
   ports:
     - name: red-port
       targetPort: 80
+      port: 80
