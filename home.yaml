@@ -33,3 +33,4 @@ spec:
   ports:
     - name: home-port
       targetPort: 80
+      port: 80
