@@ -30,6 +30,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: /orange-svc
+                name: orange-svc
                 port: 
                   number: 80
