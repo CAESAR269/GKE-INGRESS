@@ -33,3 +33,4 @@ spec:
   ports:
     - name: orange-port
       targetPort: 80
+      port: 80
