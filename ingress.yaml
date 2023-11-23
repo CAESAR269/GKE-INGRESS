@@ -4,7 +4,7 @@ metadata:
   name: ingress-gke
   annotations:
     # External Load Balancer  
-    kubernetes.io/ingress.class: "gce"  
+    kubernetes.io/ingress.class: azure/application-gateway
 spec: 
   defaultBackend:
     service:
