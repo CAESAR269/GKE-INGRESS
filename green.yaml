@@ -33,3 +33,4 @@ spec:
   ports:
     - name: green-port
       targetPort: 80
+      port: 80
